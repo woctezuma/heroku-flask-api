@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify, request, render_template
 
 from app import app
 from app.default_values import get_default_index, get_default_id, get_default_name, get_default_num_matches
@@ -122,3 +122,24 @@ def get_similar_apps_from_name():
     num_matches = request.args.get("n", get_default_num_matches())
     similar_apps = name_to_similar_apps(name, num_matches)
     return jsonify(similar_apps)
+
+
+@app.route("/render/")
+@app.route("/render/<id>")
+@app.route("/render/<id>/")
+@app.route("/render/<id>/<num_matches>")
+def render(id=None, num_matches=5):
+    if id is None:
+        id = get_default_id()
+
+    try:
+        query_app = id_to_app(id)
+    except ValueError:
+        query_app = None
+
+    try:
+        similar_apps = id_to_similar_apps(id, num_matches=num_matches)
+    except ValueError:
+        similar_apps = None
+
+    return render_template("output.html", query=query_app, similar_apps=similar_apps)

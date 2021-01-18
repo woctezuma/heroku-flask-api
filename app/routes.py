@@ -1,7 +1,12 @@
 from flask import jsonify, request, render_template
 
 from app import app
-from app.default_values import get_default_index, get_default_id, get_default_name, get_default_num_matches
+from app.default_values import (
+    get_default_index,
+    get_default_id,
+    get_default_name,
+    get_default_num_matches,
+)
 from app_utils.id_utils import id_to_index, id_to_name, id_to_app, id_to_similar_apps
 from app_utils.index_utils import (
     index_to_id,

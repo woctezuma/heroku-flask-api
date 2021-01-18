@@ -1,0 +1,21 @@
+<!doctype html>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+
+<title>Steam-CLIP</title>
+
+{% if query %}
+<img class="illustration" title="Query: {{ query.name }}"
+     src="https://cdn.cloudflare.steamstatic.com/steam/apps/{{ query.id }}/library_600x900.jpg">
+{% else %}
+No query.
+{% endif %}
+
+{% if similar_apps %}
+{% for app in similar_apps %}
+<img class="illustration" title="Match n°{{ loop.index }}: {{ app.name }}"
+     src="https://cdn.cloudflare.steamstatic.com/steam/apps/{{ app.id }}/library_600x900.jpg">
+{% endfor %}
+{% else %}
+No match.
+{% endif %}

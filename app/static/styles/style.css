@@ -1,0 +1,8 @@
+/* Reference: https://what-if.xkcd.com/ */
+div.illustration span
+{
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0.7em 0;
+}

@@ -1,5 +1,7 @@
-from flask import Flask, jsonify, request
+from flask import jsonify, request
 
+from app import app
+from app.default_values import get_default_index, get_default_id, get_default_name, get_default_num_matches
 from app_utils.id_utils import id_to_index, id_to_name, id_to_app, id_to_similar_apps
 from app_utils.index_utils import (
     index_to_id,
@@ -14,25 +16,6 @@ from app_utils.name_utils import (
     name_to_app,
     name_to_similar_apps,
 )
-
-app = Flask(__name__)
-
-
-def get_default_index():
-    return "14586"
-
-
-def get_default_id():
-    return "1091500"
-
-
-def get_default_name():
-    return "Cyberpunk 2077"
-
-
-def get_default_num_matches():
-    # With the default value ("-1"), every known match is returned.
-    return "-1"
 
 
 @app.route("/")

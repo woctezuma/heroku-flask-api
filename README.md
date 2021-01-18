@@ -4,6 +4,13 @@ Deploy an API built with Flask on Heroku.
 
 ## Usage
 
+To run locally:
+```bash
+set FLASK_APP=app/app
+flask run
+```
+
+To deploy:
 ```bash
 heroku login
 heroku create

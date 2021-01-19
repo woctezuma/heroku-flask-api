@@ -26,7 +26,7 @@ The web app can be accessed at this URL:
 
 > https://damp-brushlands-51855.herokuapp.com/
 
-To ask for results about Cyberpunk 2077, you have to append the appID (`1091500`) at the end of the `/render/` endpoint:
+To ask for results about Cyberpunk 2077, you have to append the appID (`1091500`) to the `/render/` endpoint:
 
 > https://damp-brushlands-51855.herokuapp.com/render/1091500/
 

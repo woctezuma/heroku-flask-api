@@ -6,7 +6,9 @@ from app.default_values import (
     get_default_id,
     get_default_name,
     get_default_num_matches,
-    get_default_num_matches_to_display
+    get_default_num_matches_to_display,
+    get_default_width,
+    get_default_height,
 )
 from app.random_values import get_random_id
 from app_utils.id_utils import id_to_index, id_to_name, id_to_app, id_to_similar_apps
@@ -151,4 +153,10 @@ def render(id=None, num_matches=None):
     except ValueError:
         similar_apps = None
 
-    return render_template("output.html", query=query_app, similar_apps=similar_apps, width=300, height=450)
+    return render_template(
+        "output.html",
+        query=query_app,
+        similar_apps=similar_apps,
+        width=get_default_width(),
+        height=get_default_height(),
+    )

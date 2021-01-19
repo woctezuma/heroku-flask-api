@@ -17,3 +17,11 @@ def get_default_num_matches():
 
 def get_default_num_matches_to_display():
     return "11"
+
+
+def get_default_width():
+    return 300
+
+
+def get_default_height():
+    return 450

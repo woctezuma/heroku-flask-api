@@ -17,8 +17,9 @@ def index_to_app(index):
 
 def index_to_matches(index, num_matches=-1):
     app_matches = load_app_matches()
-    max_length = max(-1, int(num_matches))
-    matches = app_matches[int(index), :max_length]
+    matches = app_matches[int(index), :]
+    if num_matches >= 0:
+        matches = matches[:num_matches]
     return [int(i) for i in matches]
 
 

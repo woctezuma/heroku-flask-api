@@ -130,7 +130,6 @@ def get_similar_apps_from_name():
 
 
 @app.route("/render/")
-@app.route("/render/<id>")
 @app.route("/render/<id>/")
 @app.route("/render/<id>/<num_matches>")
 def render(id=None, num_matches=5):

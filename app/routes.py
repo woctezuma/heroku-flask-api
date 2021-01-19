@@ -8,6 +8,7 @@ from app.default_values import (
     get_default_num_matches,
     get_default_num_matches_to_display
 )
+from app.random_values import get_random_id
 from app_utils.id_utils import id_to_index, id_to_name, id_to_app, id_to_similar_apps
 from app_utils.index_utils import (
     index_to_id,
@@ -135,7 +136,7 @@ def get_similar_apps_from_name():
 @app.route("/render/<id>/<num_matches>")
 def render(id=None, num_matches=None):
     if id is None:
-        id = get_default_id()
+        id = get_random_id()
 
     if num_matches is None:
         num_matches = get_default_num_matches_to_display()

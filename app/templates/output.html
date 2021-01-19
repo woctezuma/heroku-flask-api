@@ -14,7 +14,7 @@ No query.
 
 {% if similar_apps %}
 {% for app in similar_apps %}
-<a href="/render/{{ app.id }}/{{ num_matches }}">
+<a href="{{ app.link_url }}">
 <img class="illustration" title="Match n°{{ loop.index }}: {{ app.name }}"
      alt = "{{ app.name }}" width="{{ width }}" height="{{ height }}"
      src="{{ app.steam_illustration_url }}">

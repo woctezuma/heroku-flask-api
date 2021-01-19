@@ -25,6 +25,7 @@ from app_utils.name_utils import (
     name_to_app,
     name_to_similar_apps,
 )
+from utils.url_utils import fill_in_link_url
 
 
 @app.route("/")
@@ -136,7 +137,7 @@ def get_similar_apps_from_name():
 @app.route("/render/")
 @app.route("/render/<id>/")
 @app.route("/render/<id>/<num_matches>")
-def render(id=None, num_matches=None):
+def render(id=None, num_matches=None, link_to_steam_store=False):
     if id is None:
         id = get_random_id()
 
@@ -153,11 +154,21 @@ def render(id=None, num_matches=None):
     except ValueError:
         similar_apps = None
 
+    if query_app is not None:
+        query_app = fill_in_link_url(
+            query_app, link_to_steam_store=link_to_steam_store, num_matches=num_matches
+        )
+
+    if similar_apps is not None:
+        for i, app in enumerate(similar_apps):
+            similar_apps[i] = fill_in_link_url(
+                app, link_to_steam_store=link_to_steam_store, num_matches=num_matches
+            )
+
     return render_template(
         "output.html",
         query=query_app,
         similar_apps=similar_apps,
-        num_matches=num_matches,
         width=get_default_width(),
         height=get_default_height(),
     )

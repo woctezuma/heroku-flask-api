@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
 
-<title>Steam-CLIP</title>
+<title>{{ query.name }} (appID: {{ query.id }})</title>
 
 {% if query %}
 <img class="illustration" title="Query: {{ query.name }}"

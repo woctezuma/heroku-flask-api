@@ -20,5 +20,5 @@ def load_app_names():
 
 
 def load_app_matches():
-    fname = get_data_folder() + "matches" + get_npy_ext()
+    fname = get_data_folder() + "matches_faiss" + get_npy_ext()
     return load_from_disk(fname)

@@ -155,3 +155,12 @@ def render(id=None, num_matches=None, link_to_steam_store=False):
         width=get_default_width(),
         height=get_default_height(),
     )
+
+
+@app.route("/store/")
+@app.route("/store/<id>/")
+@app.route("/store/<id>/<num_matches>")
+def store(id=None, num_matches=None, link_to_steam_store=True):
+    return render(
+        id=id, num_matches=num_matches, link_to_steam_store=link_to_steam_store
+    )

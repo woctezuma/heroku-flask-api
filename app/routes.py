@@ -157,6 +157,7 @@ def render(id=None, num_matches=None):
         "output.html",
         query=query_app,
         similar_apps=similar_apps,
+        num_matches=num_matches,
         width=get_default_width(),
         height=get_default_height(),
     )

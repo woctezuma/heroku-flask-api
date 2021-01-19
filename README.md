@@ -2,6 +2,10 @@
 
 Deploy an API built with Flask on Heroku.
 
+## Data
+
+Data consists of images from the Steam store (~30k games) downloaded [on January 9, 2021][data-snapshot].
+
 ## Usage
 
 To run locally:
@@ -24,6 +28,7 @@ git push heroku main
 
 <!-- Definitions -->
 
+[data-snapshot]: <(https://github.com/woctezuma/steam-store-snapshots>
 [banner-repository-CLIP]: <https://github.com/woctezuma/steam-CLIP>
 [my-flask-API]: <https://github.com/woctezuma/heroku-flask-api>
 [heroku-app-CLIP]: <https://github.com/woctezuma/heroku-clip>

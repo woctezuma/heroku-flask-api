@@ -42,7 +42,7 @@ Or you can try your luck with a random game. **Caveat: some Steam games can be o
 
 <!-- Definitions -->
 
-[data-snapshot]: <(https://github.com/woctezuma/steam-store-snapshots>
+[data-snapshot]: <https://github.com/woctezuma/steam-store-snapshots>
 [banner-repository-CLIP]: <https://github.com/woctezuma/steam-CLIP>
 [my-flask-API]: <https://github.com/woctezuma/heroku-flask-api>
 [heroku-app-CLIP]: <https://github.com/woctezuma/heroku-clip>

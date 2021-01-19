@@ -6,6 +6,7 @@ from app.default_values import (
     get_default_id,
     get_default_name,
     get_default_num_matches,
+    get_default_num_matches_to_display
 )
 from app_utils.id_utils import id_to_index, id_to_name, id_to_app, id_to_similar_apps
 from app_utils.index_utils import (
@@ -132,9 +133,12 @@ def get_similar_apps_from_name():
 @app.route("/render/")
 @app.route("/render/<id>/")
 @app.route("/render/<id>/<num_matches>")
-def render(id=None, num_matches=5):
+def render(id=None, num_matches=None):
     if id is None:
         id = get_default_id()
+
+    if num_matches is None:
+        num_matches = get_default_num_matches_to_display()
 
     try:
         query_app = id_to_app(id)

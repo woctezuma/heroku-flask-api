@@ -14,3 +14,6 @@ def get_default_name():
 def get_default_num_matches():
     # With the default value ("-1"), every known match is returned.
     return "-1"
+
+def get_default_num_matches_to_display():
+    return "5"

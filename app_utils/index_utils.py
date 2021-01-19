@@ -1,4 +1,5 @@
 from utils.file_utils import load_app_ids, load_app_names, load_app_matches
+from utils.url_utils import get_steam_store_url, get_steamdb_url, get_app_query_url
 
 
 def index_to_id(index):
@@ -12,7 +13,16 @@ def index_to_name(index):
 
 
 def index_to_app(index):
-    return {"index": int(index), "id": index_to_id(index), "name": index_to_name(index)}
+    id = index_to_id(index)
+
+    return {
+        "index": int(index),
+        "id": id,
+        "name": index_to_name(index),
+        "steam_store_url": get_steam_store_url(id),
+        "steamdb_url": get_steamdb_url(id),
+        "app_query_url": get_app_query_url(id),
+    }
 
 
 def index_to_matches(index, num_matches=-1):

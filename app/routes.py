@@ -151,4 +151,4 @@ def render(id=None, num_matches=None):
     except ValueError:
         similar_apps = None
 
-    return render_template("output.html", query=query_app, similar_apps=similar_apps)
+    return render_template("output.html", query=query_app, similar_apps=similar_apps, width=300, height=450)

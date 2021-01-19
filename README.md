@@ -20,6 +20,20 @@ heroku create
 git push heroku main
 ```
 
+## Web App
+
+The web app can be accessed at this URL:
+
+> https://damp-brushlands-51855.herokuapp.com/
+
+To ask for results about Cyberpunk 2077, you have to append the appID (`1091500`) at the end of the `/render/` endpoint:
+
+> https://damp-brushlands-51855.herokuapp.com/render/1091500/
+
+Or you can try your luck with a random game. **Caveat: some Steam games can be offensive!**
+
+> https://damp-brushlands-51855.herokuapp.com/render/
+
 ## References
 
 - [`steam-CLIP`][banner-repository-CLIP]: retrieve games with similar banners, using OpenAI's CLIP (resolution 224),

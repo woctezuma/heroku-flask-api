@@ -16,4 +16,4 @@ def get_default_num_matches():
     return "-1"
 
 def get_default_num_matches_to_display():
-    return "5"
+    return "11"

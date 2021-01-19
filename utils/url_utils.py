@@ -1,15 +1,15 @@
-def get_heroku_name():
-    return 'damp-brushlands-51855'
-
-
 def get_heroku_endpoint():
     return 'render'
 
 
-def get_app_query_url(id):
-    heroku_name = get_heroku_name()
+def get_query_url(id, num_matches=None):
     heroku_endpoint = get_heroku_endpoint()
-    return f'https://{heroku_name}.herokuapp.com/{heroku_endpoint}/{id}'
+    url = f'/{heroku_endpoint}/{id}'
+
+    if num_matches is not None:
+        url += f'/{num_matches}'
+
+    return url
 
 
 def get_steam_store_url(id):

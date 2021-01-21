@@ -1,9 +1,13 @@
-def get_heroku_endpoint():
-    return "render"
+from utils.file_utils import get_suffixe
 
 
-def get_query_url(id, num_matches=None):
-    heroku_endpoint = get_heroku_endpoint()
+def get_heroku_endpoint(mirror_x=False, flip_y=False):
+    endpoint = "render" + get_suffixe(mirror_x=mirror_x, flip_y=flip_y, separator="_")
+    return endpoint
+
+
+def get_query_url(id, num_matches=None, mirror_x=False, flip_y=False):
+    heroku_endpoint = get_heroku_endpoint(mirror_x=mirror_x, flip_y=flip_y)
     url = f"/{heroku_endpoint}/{id}"
 
     if num_matches is not None:

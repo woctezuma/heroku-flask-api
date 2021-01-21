@@ -137,7 +137,7 @@ def get_similar_apps_from_name():
 @app.route("/render/")
 @app.route("/render/<id>/")
 @app.route("/render/<id>/<num_matches>")
-def render(id=None, num_matches=None, link_to_steam_store=False):
+def render(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
     if id is None:
         id = get_random_id()
 
@@ -154,13 +154,17 @@ def render(id=None, num_matches=None, link_to_steam_store=False):
         similar_apps=similar_apps,
         width=get_default_width(),
         height=get_default_height(),
+        verbose=verbose,
     )
 
 
 @app.route("/store/")
 @app.route("/store/<id>/")
 @app.route("/store/<id>/<num_matches>")
-def store(id=None, num_matches=None, link_to_steam_store=True):
+def store(id=None, num_matches=None, link_to_steam_store=True, verbose=True):
     return render(
-        id=id, num_matches=num_matches, link_to_steam_store=link_to_steam_store
+        id=id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        verbose=verbose,
     )

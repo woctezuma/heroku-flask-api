@@ -9,7 +9,9 @@
      alt = "{{ query.name }}" width="{{ width }}" height="{{ height }}"
      src="{{ query.steam_illustration_url }}">
 {% else %}
+{% if verbose %}
 No query.
+{% endif %}
 {% endif %}
 
 {% if similar_apps %}
@@ -21,5 +23,7 @@ No query.
 </a>
 {% endfor %}
 {% else %}
+{% if verbose %}
 No match.
+{% endif %}
 {% endif %}

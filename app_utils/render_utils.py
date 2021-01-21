@@ -19,13 +19,21 @@ def prepare_data_for_rendering(
 
     if query_app is not None:
         query_app = fill_in_link_url(
-            query_app, link_to_steam_store=link_to_steam_store, num_matches=num_matches
+            query_app,
+            link_to_steam_store=link_to_steam_store,
+            num_matches=num_matches,
+            mirror_x=mirror_x,
+            flip_y=flip_y,
         )
 
     if similar_apps is not None:
         for i, app in enumerate(similar_apps):
             similar_apps[i] = fill_in_link_url(
-                app, link_to_steam_store=link_to_steam_store, num_matches=num_matches
+                app,
+                link_to_steam_store=link_to_steam_store,
+                num_matches=num_matches,
+                mirror_x=mirror_x,
+                flip_y=flip_y,
             )
 
     return query_app, similar_apps

@@ -34,6 +34,32 @@ Or you can try your luck with a random game. **Caveat: some Steam games can be o
 
 > https://damp-brushlands-51855.herokuapp.com/render/
 
+### Number of matches
+
+To tweak the number of matches, for instance to 5 instead of the default (11):
+`render/1091500/5`
+
+### Direct links to the Steam store
+
+To have direct links to the Steam store:
+`store/1091500/`
+
+### Mirror and flip
+
+CLIP seems be attentive to texts present on images.
+To try to mitigate this effect, the query image can be:
+-   mirrored (i.e. horizontally),
+-   flipped (i.e. vertically).
+
+To mirror the query image:
+`render_x/` or `render/?mirror=1`
+
+To flip the query image:
+`render_y/` or `render/?flip=1`
+
+To mirror and flip the query image:
+`render_xy/` or `render/?mirror=1&flip=1`
+
 ## References
 
 - [`steam-CLIP`][banner-repository-CLIP]: retrieve games with similar banners, using OpenAI's CLIP (resolution 224),

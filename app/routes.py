@@ -186,6 +186,48 @@ def render(
     )
 
 
+@app.route("/render_x/")
+@app.route("/render_x/<id>/")
+@app.route("/render_x/<id>/<num_matches>")
+def render_x(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
+    return render(
+        id=id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        verbose=verbose,
+        mirror_x=True,
+        flip_y=False,
+    )
+
+
+@app.route("/render_y/")
+@app.route("/render_y/<id>/")
+@app.route("/render_y/<id>/<num_matches>")
+def render_y(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
+    return render(
+        id=id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        verbose=verbose,
+        mirror_x=False,
+        flip_y=True,
+    )
+
+
+@app.route("/render_xy/")
+@app.route("/render_xy/<id>/")
+@app.route("/render_xy/<id>/<num_matches>")
+def render_xy(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
+    return render(
+        id=id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        verbose=verbose,
+        mirror_x=True,
+        flip_y=True,
+    )
+
+
 @app.route("/store/")
 @app.route("/store/<id>/")
 @app.route("/store/<id>/<num_matches>")
@@ -208,4 +250,46 @@ def store(
         verbose=verbose,
         mirror_x=mirror_x,
         flip_y=flip_y,
+    )
+
+
+@app.route("/store_x/")
+@app.route("/store_x/<id>/")
+@app.route("/store_x/<id>/<num_matches>")
+def store_x(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
+    return store(
+        id=id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        verbose=verbose,
+        mirror_x=True,
+        flip_y=False,
+    )
+
+
+@app.route("/store_y/")
+@app.route("/store_y/<id>/")
+@app.route("/store_y/<id>/<num_matches>")
+def store_y(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
+    return store(
+        id=id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        verbose=verbose,
+        mirror_x=False,
+        flip_y=True,
+    )
+
+
+@app.route("/store_xy/")
+@app.route("/store_xy/<id>/")
+@app.route("/store_xy/<id>/<num_matches>")
+def store_xy(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
+    return store(
+        id=id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        verbose=verbose,
+        mirror_x=True,
+        flip_y=True,
     )

@@ -19,14 +19,14 @@ def load_app_names():
     return load_from_disk(fname)
 
 
-def get_suffixe(mirror_x=False, flip_y=False):
+def get_suffixe(mirror_x=False, flip_y=False, separator="."):
     suffixe = ""
     if mirror_x:
         suffixe += "x"
     if flip_y:
         suffixe += "y"
     if len(suffixe) > 0:
-        suffixe = "." + suffixe
+        suffixe = separator + suffixe
     return suffixe
 
 

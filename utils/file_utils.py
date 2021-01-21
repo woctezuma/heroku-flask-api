@@ -19,6 +19,18 @@ def load_app_names():
     return load_from_disk(fname)
 
 
-def load_app_matches():
-    fname = get_data_folder() + "matches_faiss" + get_npy_ext()
+def get_suffixe(mirror_x=False, flip_y=False):
+    suffixe = ""
+    if mirror_x:
+        suffixe += "x"
+    if flip_y:
+        suffixe += "y"
+    if len(suffixe) > 0:
+        suffixe = "." + suffixe
+    return suffixe
+
+
+def load_app_matches(mirror_x=False, flip_y=False):
+    suffixe = get_suffixe(mirror_x=mirror_x, flip_y=flip_y)
+    fname = get_data_folder() + "matches_faiss" + suffixe + get_npy_ext()
     return load_from_disk(fname)

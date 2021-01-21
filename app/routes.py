@@ -72,7 +72,11 @@ def get_matches():
 def get_similar_apps():
     index = request.args.get("index", get_default_index())
     num_matches = request.args.get("n", get_default_num_matches())
-    similar_apps = index_to_similar_apps(index, num_matches)
+    mirror_x = request.args.get("mirror", False)
+    flip_y = request.args.get("flip", False)
+    similar_apps = index_to_similar_apps(
+        index, num_matches, mirror_x=bool(mirror_x), flip_y=bool(flip_y)
+    )
     return jsonify(similar_apps)
 
 
@@ -101,7 +105,11 @@ def get_app_from_id():
 def get_similar_apps_from_id():
     id = request.args.get("id", get_default_id())
     num_matches = request.args.get("n", get_default_num_matches())
-    similar_apps = id_to_similar_apps(id, num_matches)
+    mirror_x = request.args.get("mirror", False)
+    flip_y = request.args.get("flip", False)
+    similar_apps = id_to_similar_apps(
+        id, num_matches, mirror_x=bool(mirror_x), flip_y=bool(flip_y)
+    )
     return jsonify(similar_apps)
 
 
@@ -130,14 +138,30 @@ def get_app_from_name():
 def get_similar_apps_from_name():
     name = request.args.get("name", get_default_name())
     num_matches = request.args.get("n", get_default_num_matches())
-    similar_apps = name_to_similar_apps(name, num_matches)
+    mirror_x = request.args.get("mirror", False)
+    flip_y = request.args.get("flip", False)
+    similar_apps = name_to_similar_apps(
+        name, num_matches, mirror_x=bool(mirror_x), flip_y=bool(flip_y)
+    )
     return jsonify(similar_apps)
 
 
 @app.route("/render/")
 @app.route("/render/<id>/")
 @app.route("/render/<id>/<num_matches>")
-def render(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
+def render(
+    id=None,
+    num_matches=None,
+    link_to_steam_store=False,
+    verbose=True,
+    mirror_x=None,
+    flip_y=None,
+):
+    if mirror_x is None:
+        mirror_x = request.args.get("mirror", False)
+    if flip_y is None:
+        flip_y = request.args.get("flip", False)
+
     if id is None:
         id = get_random_id()
 
@@ -145,7 +169,11 @@ def render(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
         num_matches = get_default_num_matches_to_display()
 
     query_app, similar_apps = prepare_data_for_rendering(
-        id, num_matches=num_matches, link_to_steam_store=link_to_steam_store
+        id,
+        num_matches=num_matches,
+        link_to_steam_store=link_to_steam_store,
+        mirror_x=mirror_x,
+        flip_y=flip_y,
     )
 
     return render_template(
@@ -161,10 +189,23 @@ def render(id=None, num_matches=None, link_to_steam_store=False, verbose=True):
 @app.route("/store/")
 @app.route("/store/<id>/")
 @app.route("/store/<id>/<num_matches>")
-def store(id=None, num_matches=None, link_to_steam_store=True, verbose=True):
+def store(
+    id=None,
+    num_matches=None,
+    link_to_steam_store=True,
+    verbose=True,
+    mirror_x=None,
+    flip_y=None,
+):
+    if mirror_x is None:
+        mirror_x = request.args.get("mirror", False)
+    if flip_y is None:
+        flip_y = request.args.get("flip", False)
     return render(
         id=id,
         num_matches=num_matches,
         link_to_steam_store=link_to_steam_store,
         verbose=verbose,
+        mirror_x=mirror_x,
+        flip_y=flip_y,
     )

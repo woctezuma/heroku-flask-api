@@ -2,14 +2,18 @@ from app_utils.id_utils import id_to_app, id_to_similar_apps
 from utils.url_utils import fill_in_link_url
 
 
-def prepare_data_for_rendering(id, num_matches=-1, link_to_steam_store=False):
+def prepare_data_for_rendering(
+    id, num_matches=-1, link_to_steam_store=False, mirror_x=False, flip_y=False
+):
     try:
         query_app = id_to_app(id)
     except ValueError:
         query_app = None
 
     try:
-        similar_apps = id_to_similar_apps(id, num_matches=num_matches)
+        similar_apps = id_to_similar_apps(
+            id, num_matches=num_matches, mirror_x=mirror_x, flip_y=flip_y
+        )
     except ValueError:
         similar_apps = None
 

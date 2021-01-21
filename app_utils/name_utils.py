@@ -21,6 +21,6 @@ def name_to_app(name):
     return index_to_app(index)
 
 
-def name_to_similar_apps(name, num_matches=-1):
+def name_to_similar_apps(name, num_matches=-1, mirror_x=False, flip_y=False):
     index = name_to_index(name)
-    return index_to_similar_apps(index, num_matches)
+    return index_to_similar_apps(index, num_matches, mirror_x=mirror_x, flip_y=flip_y)

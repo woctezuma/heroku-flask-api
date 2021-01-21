@@ -31,10 +31,10 @@ def index_to_app(index):
     }
 
 
-def index_to_matches(index, num_matches=None):
+def index_to_matches(index, num_matches=None, mirror_x=False, flip_y=False):
     if num_matches is None:
         num_matches = -1
-    app_matches = load_app_matches()
+    app_matches = load_app_matches(mirror_x=mirror_x, flip_y=flip_y)
     matches = app_matches[int(index), :]
     max_length = int(num_matches)
     if max_length >= 0:
@@ -42,10 +42,10 @@ def index_to_matches(index, num_matches=None):
     return [int(i) for i in matches]
 
 
-def index_to_similar_apps(index, num_matches=None):
+def index_to_similar_apps(index, num_matches=None, mirror_x=False, flip_y=False):
     if num_matches is None:
         num_matches = -1
-    indices = index_to_matches(index)
+    indices = index_to_matches(index, mirror_x=mirror_x, flip_y=flip_y)
     max_length = max(-1, int(num_matches))
 
     app_list = []

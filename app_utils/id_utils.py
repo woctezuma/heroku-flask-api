@@ -21,6 +21,6 @@ def id_to_app(id):
     return index_to_app(index)
 
 
-def id_to_similar_apps(id, num_matches=-1):
+def id_to_similar_apps(id, num_matches=-1, mirror_x=False, flip_y=False):
     index = id_to_index(id)
-    return index_to_similar_apps(index, num_matches)
+    return index_to_similar_apps(index, num_matches, mirror_x=mirror_x, flip_y=flip_y)

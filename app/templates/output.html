@@ -2,7 +2,11 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
 
+{% if query %}
 <title>{{ query.name }} (appID: {{ query.id }})</title>
+{% else %}
+<title>Warning: query not available.</title>
+{% endif %}
 
 {% if query %}
 <img class="illustration" title="Query: {{ query.name }}"

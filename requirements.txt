@@ -1,3 +1,5 @@
 Flask
+Flask-Limiter
+flask-cors
 gunicorn
 numpy

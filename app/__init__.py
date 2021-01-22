@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(
     app,
     resources={
-        r"/similar_apps_from_id": {"origins": ["woctezuma.github.io", "http://localhost:5000"]}
+        r"/similar_apps_from_id": {"origins": ["https://woctezuma.github.io", "http://localhost:5000"]}
     },
 )
 

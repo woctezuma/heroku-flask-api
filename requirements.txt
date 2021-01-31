@@ -1,5 +1,5 @@
 Flask
 Flask-Limiter
 flask-cors
-gunicorn
+gunicorn==20.0.4
 numpy

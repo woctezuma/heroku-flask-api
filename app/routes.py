@@ -1,4 +1,5 @@
 from flask import jsonify, request, render_template
+from flask import send_from_directory
 
 from app import app
 from app.default_values import (
@@ -32,6 +33,9 @@ from app_utils.render_utils import prepare_data_for_rendering
 def main():
     return "Welcome to my app!"
 
+@app.route('/robots.txt')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 @app.route("/index")
 def get_index():

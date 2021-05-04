@@ -1,0 +1,6 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /
+SetEnvIfNoCase User-Agent "^Wget" bad_user
+SetEnvIfNoCase User-Agent "SemrushBot" bad_user
+Deny from env=bad_user
